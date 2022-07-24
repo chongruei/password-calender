@@ -4,20 +4,38 @@ jobs:
   cypress-run:
     runs-on: ubuntu-20.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: Set up pnpm
         uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 6
-          # Only install what we need to run the client in-action and tests against it
-          # format:    `--filter <packagename>...`
-          run_install: |
-            - args: [--filter myclient... --filter cypress-tests...]
 
-      - name: Run Cypress tests
-        uses: cypress-io/github-action@v2
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
         with:
-          # we have already installed all dependencies above
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress.io
+        uses: cypress-io/github-action@v4.1.1
+        with:
           install: false
-          command: pnpm --dir cypress/ cypress:ci
-          start: pnpm --dir myclient/ dev
-          wait-on: "https://localhost:3000"
+          build: pnpm build
+          start: pnpm start
