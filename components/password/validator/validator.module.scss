@@ -1,0 +1,18 @@
+.validator {
+  @apply absolute;
+  @apply bg-[#242424];
+  @apply w-[335px];
+  @apply h-[226px];
+  @apply px-3;
+  @apply py-2;
+  @apply rounded-lg;
+  @apply grid;
+  @apply gap-y-5;
+  @apply gap-x-3;
+
+  left: -3px;
+  top: 64px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+  grid-template-columns: 20px 1fr;
+  grid-template-rows: repeat(20px);
+}
