@@ -4,7 +4,7 @@
   @apply mt-2;
   @apply mb-[1px];
   @apply gap-x-1.5;
-  @apply gap-y-[1px];
+  @apply gap-y-[3px];
 
   .day {
     @apply flex;
@@ -21,6 +21,7 @@
     &__header {
       @extend .day;
 
+      @apply mt-1;
       @apply text-[11px];
       @apply leading-[13px];
     }

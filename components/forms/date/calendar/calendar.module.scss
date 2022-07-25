@@ -1,7 +1,7 @@
 .calendar {
   @apply absolute;
   @apply w-[320px];
-  @apply h-[469px];
+  @apply h-[489px];
   @apply bg-[#1B1B1B];
   @apply text-white;
   @apply px-4;
@@ -36,7 +36,8 @@
     @apply w-full;
     @apply flex;
     @apply justify-between;
-    @apply mt-5;
+    @apply my-5;
+    @apply pb-2;
     @apply px-[30px];
     @apply text-sm;
     @apply font-semibold;
