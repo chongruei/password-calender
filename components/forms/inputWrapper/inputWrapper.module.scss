@@ -1,4 +1,4 @@
-.password {
+.input {
   @apply relative;
   @apply w-[335px];
   @apply h-[64px];
@@ -17,19 +17,8 @@
     @apply text-xs;
     @apply px-1;
   }
-
-  .input {
-    @apply w-full;
-    @apply bg-transparent;
-    @apply outline-0;
-    @apply placeholder-white/30;
-
-    &::placeholder {
-      @apply translate-y-[-3px];
-    }
-  }
 }
 
-.password_focused {
+.input__focused {
   border-color: #00a3ff !important;
 }

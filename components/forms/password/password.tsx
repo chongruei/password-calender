@@ -1,12 +1,13 @@
 import { ChangeEvent, ChangeEventHandler, FC, useState } from "react";
-import { useFocus } from "@hooks/useFocus";
 import { Validator } from "./validator/validator";
+import {
+  IInputInterface,
+  withInputWrapper,
+} from "../inputWrapper/inputWrapper";
 
 import styles from "./password.module.scss";
-import classnames from "classnames";
 
-export const Password: FC = () => {
-  const { ref, isFocused } = useFocus();
+const Password_View: FC<IInputInterface> = ({ forwardedRef, isFocused }) => {
   const [pw, setPw] = useState<string>("");
 
   const handleChangePassword: ChangeEventHandler<HTMLInputElement> = (
@@ -25,22 +26,18 @@ export const Password: FC = () => {
   };
 
   return (
-    <fieldset
-      data-testid="password"
-      className={classnames(styles.password, {
-        [styles.password_focused]: isFocused,
-      })}
-    >
-      <legend className={styles.legend}>Password</legend>
+    <>
       <input
+        ref={forwardedRef}
         data-testid="password-input"
-        ref={ref}
         type="text"
         className={styles.input}
         placeholder="Password"
         onChange={handleChangePassword}
       ></input>
       {isFocused && <Validator password={pw} />}
-    </fieldset>
+    </>
   );
 };
+
+export const Password = withInputWrapper(Password_View, "Password", "password");
