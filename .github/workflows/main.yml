@@ -17,7 +17,7 @@ jobs:
         id: pnpm-install
         with:
           version: 7
-          run_install: false
+          run_install: true
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -40,6 +40,5 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@v4.1.1
         with:
-          install: false
           build: pnpm build
           start: pnpm start
