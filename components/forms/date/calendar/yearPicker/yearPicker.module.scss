@@ -2,11 +2,12 @@
   @apply grid;
   @apply grid-cols-4;
   @apply mt-7;
-  @apply mb-4;
+  @apply mb-5;
   @apply gap-x-1.5;
-  @apply gap-y-7;
+  @apply gap-y-5;
 
   .year {
+    @apply mt-1;
     @apply h-6;
     @apply w-[61px];
     @apply flex;
