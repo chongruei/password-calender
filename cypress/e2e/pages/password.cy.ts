@@ -32,30 +32,27 @@ describe("Navigation", () => {
     const trueColor = "#00D1FF";
     const falseColor = "#565656";
 
-    cy.getByTestId("validator-UpperCase")
-      .children()
-      .invoke("attr", "fill")
-      .and("eq", falseColor);
+    expect(
+      cy.getByTestId("validator-UpperCase").children(`[stroke="${falseColor}"]`)
+    ).to.not.be.null;
 
-    cy.getByTestId("validator-LowerCase")
-      .children()
-      .invoke("attr", "fill")
-      .and("eq", falseColor);
+    expect(
+      cy.getByTestId("validator-LowerCase").children(`[stroke="${falseColor}"]`)
+    ).to.not.be.null;
 
-    cy.getByTestId("validator-Number")
-      .children()
-      .invoke("attr", "fill")
-      .and("eq", falseColor);
+    expect(
+      cy.getByTestId("validator-Number").children(`[stroke="${falseColor}"]`)
+    ).to.not.be.null;
 
-    cy.getByTestId("validator-Special")
-      .children()
-      .invoke("attr", "fill")
-      .and("eq", falseColor);
+    expect(
+      cy.getByTestId("validator-Special").children(`[stroke="${falseColor}"]`)
+    ).not.be.null;
 
-    cy.getByTestId("validator-LongerThen8Characters")
-      .children()
-      .invoke("attr", "fill")
-      .and("eq", falseColor);
+    expect(
+      cy
+        .getByTestId("validator-LongerThen8Characters")
+        .children(`[stroke="${falseColor}"]`)
+    ).not.be.null;
 
     cy.getByTestId("password-input").type("Hello, World!");
 
@@ -69,10 +66,9 @@ describe("Navigation", () => {
       .invoke("attr", "fill")
       .and("eq", trueColor);
 
-    cy.getByTestId("validator-Number")
-      .children()
-      .invoke("attr", "fill")
-      .and("eq", falseColor);
+    expect(
+      cy.getByTestId("validator-Number").children(`[stroke="${falseColor}"]`)
+    ).to.not.be.null;
 
     cy.getByTestId("validator-Special")
       .children()
