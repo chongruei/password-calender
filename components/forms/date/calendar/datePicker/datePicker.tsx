@@ -23,7 +23,7 @@ export const DatePicker: FC<IProps> = ({ year, month, date, setDate }) => {
   const currMonthDays = getDays(year, month);
   const prevMonthDays = getDays(year, month - 1);
 
-  const currMonthDate = new Date(`${year}-${month}-01`);
+  const currMonthDate = new Date(`${year}/${month}/1`);
   const firstWeekDay = currMonthDate.getDay();
 
   const getSelectedDateClass = (day: number) => {
