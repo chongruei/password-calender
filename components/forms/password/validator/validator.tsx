@@ -45,7 +45,7 @@ export const Validator: FC<IProps> = ({ password }) => {
             data-testid={`validator-${key}`}
             isCorrect={password.match(PasswordValidtorRecord[key].reg) !== null}
           />
-          <span className="h-5 flex items-center">
+          <span className="h-5 flex items-center text-[14px]">
             {PasswordValidtorRecord[key].name}
           </span>
         </Fragment>
