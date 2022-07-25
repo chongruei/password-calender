@@ -1,0 +1,42 @@
+.yearPicker {
+  @apply grid;
+  @apply grid-cols-4;
+  @apply mt-7;
+  @apply mb-4;
+  @apply gap-x-1.5;
+  @apply gap-y-6;
+
+  .year {
+    @apply h-6;
+    @apply w-[61px];
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+    @apply hover:cursor-pointer;
+    @apply rounded-[2px];
+
+    &__curr {
+      @extend .year;
+
+      @apply hover:cursor-pointer;
+      @apply hover:bg-white;
+      @apply hover:text-black;
+    }
+
+    &__selected {
+      @extend .year;
+
+      @apply text-white;
+      @apply bg-[#00A3FF];
+      @apply border-[#00A3FF];
+    }
+
+    &__picked {
+      @extend .year;
+
+      @apply text-white;
+      @apply border;
+      @apply border-[#00A3FF];
+    }
+  }
+}

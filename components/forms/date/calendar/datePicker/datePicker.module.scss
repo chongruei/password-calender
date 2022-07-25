@@ -1,0 +1,55 @@
+.datePicker {
+  @apply grid;
+  @apply grid-cols-7;
+  @apply mt-2;
+  @apply mb-[1px];
+  @apply gap-x-1.5;
+  @apply gap-y-[1px];
+
+  .day {
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+    @apply h-[35px];
+    @apply w-[35px];
+    @apply text-sm;
+    @apply border;
+    @apply border-transparent;
+    @apply rounded-[50%];
+    @apply text-[#929292];
+
+    &__header {
+      @extend .day;
+
+      @apply text-[11px];
+      @apply leading-[13px];
+    }
+
+    &__curr {
+      @extend .day;
+
+      @apply hover:cursor-pointer;
+      @apply text-white;
+      @apply hover:bg-white;
+      @apply hover:text-black;
+      @apply hover:border-white;
+    }
+
+    &__selected {
+      @extend .day;
+
+      @apply hover:cursor-pointer;
+      @apply text-white;
+      @apply bg-[#00A3FF];
+      @apply border-[#00A3FF];
+    }
+
+    &__picked {
+      @extend .day;
+
+      @apply text-white;
+      @apply hover:cursor-pointer;
+      @apply border-[#00A3FF];
+    }
+  }
+}

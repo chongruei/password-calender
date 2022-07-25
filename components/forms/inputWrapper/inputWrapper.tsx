@@ -6,16 +6,20 @@ import { useFocus } from "@hooks/useFocus";
 
 import styles from "./inputWrapper.module.scss";
 
-export interface IInputInterface {
+export interface IInputProps {
+  legendStr: string;
+  testId?: string;
+}
+
+export interface IInputWrapper {
   forwardedRef: RefObject<HTMLInputElement>;
   isFocused: boolean;
 }
 
 export const withInputWrapper =
-  (Comp: FC<IInputInterface>, legendStr: string, testId?: string): FC =>
-  () => {
+  (Comp: FC<IInputWrapper>): FC<IInputProps> =>
+  ({ legendStr, testId }) => {
     const { ref, isFocused } = useFocus();
-    console.info(Comp);
     return (
       <fieldset
         data-testid={testId}

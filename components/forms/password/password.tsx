@@ -1,13 +1,10 @@
 import { ChangeEvent, ChangeEventHandler, FC, useState } from "react";
 import { Validator } from "./validator/validator";
-import {
-  IInputInterface,
-  withInputWrapper,
-} from "../inputWrapper/inputWrapper";
+import { IInputWrapper, withInputWrapper } from "../inputWrapper/inputWrapper";
 
 import styles from "./password.module.scss";
 
-const Password_View: FC<IInputInterface> = ({ forwardedRef, isFocused }) => {
+const Password_View: FC<IInputWrapper> = ({ forwardedRef, isFocused }) => {
   const [pw, setPw] = useState<string>("");
 
   const handleChangePassword: ChangeEventHandler<HTMLInputElement> = (
@@ -40,4 +37,4 @@ const Password_View: FC<IInputInterface> = ({ forwardedRef, isFocused }) => {
   );
 };
 
-export const Password = withInputWrapper(Password_View, "Password", "password");
+export const Password = withInputWrapper(Password_View);
