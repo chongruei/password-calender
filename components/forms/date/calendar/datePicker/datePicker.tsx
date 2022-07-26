@@ -44,7 +44,7 @@ export const DatePicker: FC<IProps> = ({ year, month, date, setDate }) => {
 
   const handlePickDate: MouseEventHandler<HTMLButtonElement> = (e) => {
     const pickDays = e.currentTarget.value;
-    setDate(new Date(`${year}-${month}-${pickDays}`));
+    setDate(new Date(`${year}/${month}/${pickDays}`));
   };
 
   return (
